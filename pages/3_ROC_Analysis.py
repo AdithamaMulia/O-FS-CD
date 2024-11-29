@@ -24,9 +24,9 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 st.markdown("""
     <div class='upload-box'>
-    <h3>📤 Upload UpRegulated Genes Dataset</h3>
+    <h3>📤 Upload UpRegulated DEG Genes Dataset</h3>
     """, unsafe_allow_html=True)
-combined_dataset_file = st.file_uploader("Upload UpRegulated Genes Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="genes")
+upregulated_genes_file = st.file_uploader("Upload UpRegulated DEG Genes Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="genes")
 st.markdown("</div>", unsafe_allow_html=True)
 
 
@@ -36,9 +36,9 @@ st.markdown("""
     """, unsafe_allow_html=True)
 auc_threshold = st.slider("", min_value=0.5, max_value=1.0, value=0.9, step=0.05)
 
-if combined_dataset_file and big_dataset:
+if upregulated_genes_file and big_dataset:
     # Load data
-    data = pd.read_csv(combined_dataset_file)
+    data = pd.read_csv(upregulated_genes_file)
     geneID = data.iloc[:,0]
     features_df = data.iloc[:,1:]
     data = data.set_index("Ensembl_ID")
