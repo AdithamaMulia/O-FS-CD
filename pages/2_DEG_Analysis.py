@@ -7,44 +7,6 @@ import numpy as np
 # Advanced Styling
 st.set_page_config(page_title="Gene Expression Analysis", layout="wide")
 
-st.markdown("""
-<style>
-body {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-.stApp {
-    background-color: #121212;
-}
-.stTabs [data-baseweb="tab-list"] {
-    background-color: #1e1e1e;
-}
-.stTabs [data-baseweb="tab"] {
-    color: #bb86fc;
-    background-color: #1e1e1e;
-}
-.stTabs [data-baseweb="tab"]:hover {
-    color: #03dac6;
-}
-.stTextInput>div>div>input {
-    color: #bb86fc;
-    background-color: #1e1e1e;
-}
-.stButton>button {
-    background-color: #bb86fc !important;
-    color: #000 !important;
-    border-radius: 10px;
-}
-.stDataFrame {
-    background-color: #1e1e1e;
-    color: #e0e0e0;
-}
-h1, h2, h3 {
-    color: #bb86fc !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
 # App Title
 st.title("Differential Gene Expression Analysis with PyDESeq2")
 

@@ -8,52 +8,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS styling
-st.markdown("""
-    <style>
-    .main {
-        padding: 2rem;
-        background-color: #f8f9fa;
-    }
-    .stTitle {
-        color: #2c3e50;
-        font-size: 2.5rem !important;
-        text-align: center;
-        padding: 1.5rem;
-        background: linear-gradient(to right, #2980b9, #2c3e50);
-        color: white;
-        border-radius: 10px;
-        margin-bottom: 2rem;
-    }
-    .upload-section {
-        background-color: white;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        margin: 1rem 0;
-    }
-    .stButton button {
-        width: 100%;
-        background-color: #27ae60;
-        color: white;
-        padding: 0.5rem;
-        border-radius: 5px;
-        transition: all 0.3s;
-    }
-    .stButton button:hover {
-        background-color: #219a52;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    .dataframe-container {
-        background-color: white;
-        padding: 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        margin: 1rem 0;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
 
 # Main title with icon
 st.markdown("# 🧬 Dataset Creation", unsafe_allow_html=True)

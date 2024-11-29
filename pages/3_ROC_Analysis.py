@@ -12,44 +12,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS styling
-st.markdown("""
-    <style>
-    .main {
-        padding: 2rem;
-    }
-    .stTitle {
-        color: #2E4053;
-        font-size: 3rem !important;
-        text-align: center;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        padding-bottom: 2rem;
-    }
-    .stHeader {
-        color: #34495E;
-        background-color: #F8F9F9;
-        padding: 1rem;
-        border-radius: 5px;
-        margin: 1rem 0;
-    }
-    .stButton button {
-        background-color: #2E86C1;
-        color: white;
-        border-radius: 5px;
-        padding: 0.5rem 1rem;
-    }
-    .stButton button:hover {
-        background-color: #21618C;
-    }
-    .upload-box {
-        border: 2px dashed #BDC3C7;
-        border-radius: 5px;
-        padding: 1rem;
-        margin: 1rem 0;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
 # Title with emoji
 st.markdown("# 🧬 Gene ROC Analysis", unsafe_allow_html=True)
 
