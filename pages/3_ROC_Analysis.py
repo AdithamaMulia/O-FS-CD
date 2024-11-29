@@ -23,22 +23,22 @@ with col1:
         <div class='upload-box'>
         <h3>📤 Upload UpRegulated Dataset</h3>
         """, unsafe_allow_html=True)
-    upregulated_file = st.file_uploader("Upload Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="ensembls")
+    upregulated_file = st.file_uploader("Upload UpRegulated Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="ensembls")
     st.markdown("</div>", unsafe_allow_html=True)
 
 with col2:
     st.markdown("""
         <div class='upload-box'>
-        <h3>📤 Upload UpRegulated Dataset</h3>
+        <h3>📤 Upload Combined Race Dataset</h3>
         """, unsafe_allow_html=True)
-    combined_dataset_file = st.file_uploader("Upload Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="dataset")
+    combined_dataset_file = st.file_uploader("Upload Combined Race Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="dataset")
     st.markdown("</div>", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
 # ROC Curve AUC Threshold
 st.markdown("""
-    <h3 style='color: #2E4053;'>🎯 AUC Threshold Selection</h3>
+    <h3 style='color: #2E4053;'>AUC Threshold Selection</h3>
     """, unsafe_allow_html=True)
 auc_threshold = st.slider("", min_value=0.5, max_value=1.0, value=0.9, step=0.05)
 
