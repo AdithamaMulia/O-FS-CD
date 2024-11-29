@@ -36,7 +36,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 auc_threshold = st.slider("", min_value=0.5, max_value=1.0, value=0.9, step=0.05)
 
-if combined_dataset_file:
+if combined_dataset_file and big_dataset:
     # Load data
     data = pd.read_csv(combined_dataset_file)
     geneID = data.iloc[:,0]
