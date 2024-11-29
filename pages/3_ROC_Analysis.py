@@ -26,7 +26,7 @@ st.markdown("""
     <div class='upload-box'>
     <h3>📤 Upload UpRegulated Genes Dataset</h3>
     """, unsafe_allow_html=True)
-combined_dataset_file = st.file_uploader("Upload UpRegulated Genes Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="dataset")
+combined_dataset_file = st.file_uploader("Upload UpRegulated Genes Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="genes")
 st.markdown("</div>", unsafe_allow_html=True)
 
 
