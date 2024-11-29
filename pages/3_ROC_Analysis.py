@@ -5,14 +5,80 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import label_binarize
 from sklearn.metrics import roc_curve, auc
 
-st.title("Gene ROC Analysis")
+# Page configuration
+st.set_page_config(
+    page_title="Gene ROC Analysis",
+    page_icon="🧬",
+    layout="wide"
+)
+
+# Custom CSS styling
+st.markdown("""
+    <style>
+    .main {
+        padding: 2rem;
+    }
+    .stTitle {
+        color: #2E4053;
+        font-size: 3rem !important;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        padding-bottom: 2rem;
+    }
+    .stHeader {
+        color: #34495E;
+        background-color: #F8F9F9;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+    }
+    .stButton button {
+        background-color: #2E86C1;
+        color: white;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+    }
+    .stButton button:hover {
+        background-color: #21618C;
+    }
+    .upload-box {
+        border: 2px dashed #BDC3C7;
+        border-radius: 5px;
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+# Title with emoji
+st.markdown("# 🧬 Gene ROC Analysis", unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
 
 st.header("Input Files")
-upregulated_file = st.file_uploader("Upload UpRegulated Dataset", type=['csv', 'xlsx'])
-combined_dataset_file = st.file_uploader("Upload Combined Dataset", type=['csv', 'xlsx'])
+with col1:
+    st.markdown("""
+        <div class='upload-box'>
+        <h3>📤 Upload UpRegulated Dataset</h3>
+        """, unsafe_allow_html=True)
+    upregulated_file = st.file_uploader("", type=['csv', 'xlsx'])
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+        <div class='upload-box'>
+        <h3>📤 Upload Combined Dataset</h3>
+        """, unsafe_allow_html=True)
+    combined_dataset_file = st.file_uploader("", type=['csv', 'xlsx'])
+    st.markdown("</div>", unsafe_allow_html=True)
+
+st.markdown("<hr>", unsafe_allow_html=True)
 
 # ROC Curve AUC Threshold
-auc_threshold = st.slider("AUC Threshold", min_value=0.5, max_value=1.0, value=0.9, step=0.05)
+st.markdown("""
+    <h3 style='color: #2E4053;'>🎯 AUC Threshold Selection</h3>
+    """, unsafe_allow_html=True)
+auc_threshold = st.slider("", min_value=0.5, max_value=1.0, value=0.9, step=0.05)
 
 if upregulated_file and combined_dataset_file:
     # Load data
@@ -25,7 +91,11 @@ if upregulated_file and combined_dataset_file:
     data['label'] = ['cancer' if '-01' in sample else 'normal' for sample in data.index]
     
     # Sample count information
-    st.header("Sample Information")
+    st.markdown("""
+        <h2 style='color: #2E4053; padding: 1rem 0;'>
+            📊 Sample Information
+        </h2>
+        """, unsafe_allow_html=True)
     class_counts = data['label'].value_counts()
     st.write(f"Total cancer samples: {class_counts['cancer']}")
     st.write(f"Total normal samples: {class_counts['normal']}")
@@ -52,7 +122,11 @@ if upregulated_file and combined_dataset_file:
     })
     
     # Plot ROC Curve
-    st.header("ROC Curve")
+    st.markdown("""
+        <h2 style='color: #2E4053; padding: 1rem 0;'>
+            📈 ROC Curve
+        </h2>
+        """, unsafe_allow_html=True)
     plt.figure(figsize=(10, 8))
     
     high_auc_genes = []
@@ -71,12 +145,20 @@ if upregulated_file and combined_dataset_file:
     st.pyplot(plt)
     
     # Display high AUC genes
-    st.header("High AUC Genes")
+    st.markdown("""
+        <h2 style='color: #2E4053; padding: 1rem 0;'>
+            🎯 High AUC Genes
+        </h2>
+        """, unsafe_allow_html=True)
     st.write(f"Genes with AUC > {auc_threshold}:")
     st.write(high_auc_genes)
     
     # Filter Combined Dataset
-    st.header("Filtered Dataset")
+    st.markdown("""
+        <h2 style='color: #2E4053; padding: 1rem 0;'>
+            📑 Filtered Dataset
+        </h2>
+        """, unsafe_allow_html=True)
     combined_dataset = pd.read_csv(combined_dataset_file)
     regulated_genes = combined_dataset[combined_dataset['Ensembl_ID'].isin(high_auc_genes)]
     st.dataframe(regulated_genes)

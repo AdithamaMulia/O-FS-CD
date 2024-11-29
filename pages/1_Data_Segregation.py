@@ -25,22 +25,67 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS for improved styling
+# Advanced Custom CSS for modern, dark-themed design
 st.markdown("""
     <style>
+    /* Global Background and Text */
     .reportview-container {
-        background-color: #f0f2f6;
+        background-color: #121212;
+        color: #e0e0e0;
     }
+    
+    /* Sidebar Styling */
     .sidebar .sidebar-content {
-        background-color: #e6e9ef;
+        background-color: #1e1e1e;
+        color: #ffffff;
     }
+    
+    /* Button Styling */
     .stButton>button {
-        background-color: #4CAF50;
-        color: white;
+        background-color: #bb86fc;
+        color: #000;
         font-weight: bold;
+        border-radius: 20px;
+        transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        background-color: #45a049;
+        background-color: #3700b3;
+        color: #ffffff;
+        transform: scale(1.05);
+    }
+    
+    /* Header Styling */
+    h1, h2, h3 {
+        color: #bb86fc;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    /* File Uploader Styling */
+    .stFileUploader {
+        background-color: #1e1e1e;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    /* Container Styling */
+    .stContainer {
+        background-color: #1e1e1e;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    /* Success and Error Message Styling */
+    .stSuccess {
+        background-color: #03dac6;
+        color: #000;
+        border-radius: 10px;
+    }
+    .stError {
+        background-color: #cf6679;
+        color: #ffffff;
+        border-radius: 10px;
     }
     </style>
     """, unsafe_allow_html=True)
