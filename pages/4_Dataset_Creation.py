@@ -20,7 +20,7 @@ st.markdown("""
 
 # File Uploaders
 st.markdown("""
-    <h2 style='color: #2c3e50; margin-top: 2rem;'>
+    <h2 style='color: #57b1ff; margin-top: 2rem;'>
         📤 Upload Input Files
     </h2>
     """, unsafe_allow_html=True)
@@ -30,7 +30,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
         <div class='upload-section'>
-        <h4 style='color: #2c3e50;'>DEG Genes File</h4>
+        <h4 style='color: #57b1ff;'>DEG Genes File</h4>
         """, unsafe_allow_html=True)
     deg_file = st.file_uploader("", type=['csv'], key="deg")
     st.markdown("</div>", unsafe_allow_html=True)
@@ -38,7 +38,7 @@ with col1:
 with col2:
     st.markdown("""
         <div class='upload-section'>
-        <h4 style='color: #2c3e50;'>Combined Dataset</h4>
+        <h4 style='color: #57b1ff;'>Combined Dataset</h4>
         """, unsafe_allow_html=True)
     dataset_file = st.file_uploader("", type=['csv'], key="dataset")
     st.markdown("</div>", unsafe_allow_html=True)
@@ -54,7 +54,7 @@ if deg_file and dataset_file:
     
     # Display First Few Ensembl IDs
     st.markdown("""
-        <h2 style='color: #2c3e50; margin-top: 2rem;'>
+        <h2 style='color: #57b1ff; margin-top: 2rem;'>
             🧬 Gene File Ensembl IDs
         </h2>
         """, unsafe_allow_html=True)
@@ -69,7 +69,7 @@ if deg_file and dataset_file:
 
     # Display Filtered Genes
     st.markdown("""
-        <h2 style='color: #2c3e50; margin-top: 2rem;'>
+        <h2 style='color: #57b1ff; margin-top: 2rem;'>
             📊 Created Counts Dataset
         </h2>
         """, unsafe_allow_html=True)
