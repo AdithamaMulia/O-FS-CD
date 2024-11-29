@@ -11,11 +11,7 @@ st.set_page_config(
 
 # Main title with icon
 st.markdown("# 🧬 Dataset Creation", unsafe_allow_html=True)
-st.markdown("""
-    <p color: "white"; font-size: 5.2rem; margin-bottom: 2rem;'>
-        Module to Create Dataset for Machine Learning Modelling
-    </p>
-    """, unsafe_allow_html=True)
+st.markdown("## Module to Create Dataset for Machine Learning Modelling", unsafe_allow_html=True)
 
 
 # File Uploaders
