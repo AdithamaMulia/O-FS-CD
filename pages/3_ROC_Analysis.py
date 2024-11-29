@@ -32,7 +32,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # ROC Curve AUC Threshold
 st.markdown("""
-    <h3 style='color: #2E4053;'>AUC Threshold Selection</h3>
+    <h3 style='color: #57b1ff;'>AUC Threshold Selection</h3>
     """, unsafe_allow_html=True)
 auc_threshold = st.slider("", min_value=0.5, max_value=1.0, value=0.9, step=0.05)
 
@@ -47,7 +47,7 @@ if upregulated_genes_file and big_dataset:
     
     # Sample count information
     st.markdown("""
-        <h2 style='color: #2E4053; padding: 1rem 0;'>
+        <h2 style='color: #57b1ff; padding: 1rem 0;'>
             📊 Sample Information
         </h2>
         """, unsafe_allow_html=True)
@@ -78,7 +78,7 @@ if upregulated_genes_file and big_dataset:
     
     # Plot ROC Curve
     st.markdown("""
-        <h2 style='color: #2E4053; padding: 1rem 0;'>
+        <h2 style='color: #57b1ff; padding: 1rem 0;'>
             📈 ROC Curve
         </h2>
         """, unsafe_allow_html=True)
@@ -110,7 +110,7 @@ if upregulated_genes_file and big_dataset:
     
     # Display high AUC genes
     st.markdown("""
-        <h2 style='color: #2E4053; padding: 1rem 0;'>
+        <h2 style='color: #57b1ff; padding: 1rem 0;'>
             🎯 High AUC Genes
         </h2>
         """, unsafe_allow_html=True)
@@ -119,7 +119,7 @@ if upregulated_genes_file and big_dataset:
     
     # Filter Combined Dataset
     st.markdown("""
-        <h2 style='color: #2E4053; padding: 1rem 0;'>
+        <h2 style='color: #57b1ff; padding: 1rem 0;'>
             📑 Filtered Dataset
         </h2>
         """, unsafe_allow_html=True)
