@@ -13,7 +13,7 @@ st.set_page_config(
 ) 
 
 # Title with emoji
-st.markdown("# 🧬 Gene ROC Analysis")
+st.markdown("# 🧬 Gene ROC Analysis", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
@@ -22,24 +22,24 @@ with col1:
     st.markdown("""
         <div class='upload-box'>
         <h3>📤 Upload UpRegulated Dataset</h3>
-        """)
+        """, unsafe_allow_html=True)
     upregulated_file = st.file_uploader("Upload Data (.csv OR .xlsx)", type=['csv', 'xlsx'])
-    st.markdown("</div>")
+    st.markdown("</div>", unsafe_allow_html=True)
 
 with col2:
     st.markdown("""
         <div class='upload-box'>
         <h3>📤 Upload Combined Dataset</h3>
-        """)
+        """, unsafe_allow_html=True)
     combined_dataset_file = st.file_uploader("Upload Data (.csv OR .xlsx)", type=['csv', 'xlsx'])
-    st.markdown("</div>")
+    st.markdown("</div>", unsafe_allow_html=True)
 
-st.markdown("<hr>")
+st.markdown("<hr>", unsafe_allow_html=True)
 
 # ROC Curve AUC Threshold
 st.markdown("""
     <h3 style='color: #2E4053;'>🎯 AUC Threshold Selection</h3>
-    """)
+    """, unsafe_allow_html=True)
 auc_threshold = st.slider("", min_value=0.5, max_value=1.0, value=0.9, step=0.05)
 
 if upregulated_file and combined_dataset_file:
@@ -57,7 +57,7 @@ if upregulated_file and combined_dataset_file:
         <h2 style='color: #2E4053; padding: 1rem 0;'>
             📊 Sample Information
         </h2>
-        """)
+        """, unsafe_allow_html=True)
     class_counts = data['label'].value_counts()
     st.write(f"Total cancer samples: {class_counts['cancer']}")
     st.write(f"Total normal samples: {class_counts['normal']}")
@@ -88,7 +88,7 @@ if upregulated_file and combined_dataset_file:
         <h2 style='color: #2E4053; padding: 1rem 0;'>
             📈 ROC Curve
         </h2>
-        """)
+        """, unsafe_allow_html=True)
     plt.figure(figsize=(10, 8))
     
     high_auc_genes = []
@@ -111,7 +111,7 @@ if upregulated_file and combined_dataset_file:
         <h2 style='color: #2E4053; padding: 1rem 0;'>
             🎯 High AUC Genes
         </h2>
-        """)
+        """, unsafe_allow_html=True)
     st.write(f"Genes with AUC > {auc_threshold}:")
     st.write(high_auc_genes)
     
@@ -120,7 +120,7 @@ if upregulated_file and combined_dataset_file:
         <h2 style='color: #2E4053; padding: 1rem 0;'>
             📑 Filtered Dataset
         </h2>
-        """)
+        """, unsafe_allow_html=True)
     combined_dataset = pd.read_csv(combined_dataset_file)
     regulated_genes = combined_dataset[combined_dataset['Ensembl_ID'].isin(high_auc_genes)]
     st.dataframe(regulated_genes)
