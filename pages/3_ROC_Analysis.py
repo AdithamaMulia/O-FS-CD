@@ -90,9 +90,18 @@ if combined_dataset_file:
     plt.ylim([0.0, 1.05])
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
-    plt.title(f'ROC Curve for Genes with AUC > {auc_threshold}')
+    plt.title('ROC Curve for Genes with AUC > 0.9')
     plt.legend(loc="lower right")
-    st.pyplot(plt)
+    plt.show()
+
+    roc_df = pd.DataFrame({
+        'Ensembl_ID': geneID,
+        'ROC': [roc_auc[i] for i in range(X.shape[1])]
+    })
+
+    for i in range(X.shape[1]):
+        if roc_auc[i] > 0.9:
+            print(f"AUC for gene {geneID[i]}: {roc_auc[i]:.4f}")
     
     # Display high AUC genes
     st.markdown("""
@@ -109,8 +118,7 @@ if combined_dataset_file:
             📑 Filtered Dataset
         </h2>
         """, unsafe_allow_html=True)
-    combined_dataset = pd.read_csv(combined_dataset_file)
-    regulated_genes = combined_dataset[combined_dataset['Ensembl_ID'].isin(high_auc_genes)]
+    regulated_genes = combined_dataset_file[combined_dataset_file['Ensembl_ID'].isin(high_auc_genes)]
     st.dataframe(regulated_genes)
 
     # Download option
