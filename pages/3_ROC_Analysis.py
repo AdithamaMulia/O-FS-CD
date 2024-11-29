@@ -10,7 +10,7 @@ st.set_page_config(
     page_title="Gene ROC Analysis",
     page_icon="🧬",
     layout="wide"
-)
+) 
 
 # Title with emoji
 st.markdown("# 🧬 Gene ROC Analysis", unsafe_allow_html=True)
