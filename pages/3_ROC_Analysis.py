@@ -19,10 +19,16 @@ st.markdown("""
     <div class='upload-box'>
     <h3>📤 Upload Combined Race Dataset</h3>
     """, unsafe_allow_html=True)
-combined_dataset_file = st.file_uploader("Upload Combined Race Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="dataset")
+big_dataset = st.file_uploader("Upload Combined Race Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="dataset")
 st.markdown("</div>", unsafe_allow_html=True)
 
-st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("""
+    <div class='upload-box'>
+    <h3>📤 Upload UpRegulated Genes Dataset</h3>
+    """, unsafe_allow_html=True)
+combined_dataset_file = st.file_uploader("Upload UpRegulated Genes Data (.csv OR .xlsx)", type=['csv', 'xlsx'], key="dataset")
+st.markdown("</div>", unsafe_allow_html=True)
+
 
 # ROC Curve AUC Threshold
 st.markdown("""
@@ -118,7 +124,8 @@ if combined_dataset_file:
             📑 Filtered Dataset
         </h2>
         """, unsafe_allow_html=True)
-    regulated_genes = combined_dataset_file[combined_dataset_file['Ensembl_ID'].isin(high_auc_genes)]
+    big_dataset_df = pd.read_csv(big_dataset)
+    regulated_genes = big_dataset_df[big_dataset_df['Ensembl_ID'].isin(high_auc_genes)]
     st.dataframe(regulated_genes)
 
     # Download option
