@@ -64,7 +64,7 @@ if upregulated_file and combined_dataset_file:
     st.write(f"Total samples: {len(data)}")
     
     # Prepare data for ROC
-    X = np.asarray(features_df.round().astype(int).T)
+    X = np.asarray(features_df.T)
     y = np.asarray(data['label'])
     
     y_bin = label_binarize(y, classes=np.unique(y))
