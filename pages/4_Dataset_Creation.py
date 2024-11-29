@@ -12,7 +12,7 @@ st.set_page_config(
 # Main title with icon
 st.markdown("# 🧬 Dataset Creation", unsafe_allow_html=True)
 st.markdown("""
-    <p style='text-align: center; color: #666; font-size: 1.2rem; margin-bottom: 2rem;'>
+    <p color: "white"; font-size: 1.3rem; margin-bottom: 2rem;'>
         Module to Create Dataset for Machine Learning Modelling
     </p>
     """, unsafe_allow_html=True)
