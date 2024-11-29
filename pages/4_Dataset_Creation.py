@@ -125,11 +125,9 @@ if deg_file and dataset_file:
         st.markdown("</div>", unsafe_allow_html=True)
 
     # Save Option
-    st.markdown("<div style='padding: 2rem 0;'>", unsafe_allow_html=True)
     st.download_button(
-        label="📥 Download Filtered Genes",
+        label="Download Filtered Genes",
         data=regulated_genes.to_csv(index=True),
         file_name='Dataset.csv',
         mime='text/csv'
     )
-    st.markdown("</div>", unsafe_allow_html=True)
