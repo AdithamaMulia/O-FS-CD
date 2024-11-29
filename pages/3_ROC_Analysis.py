@@ -29,7 +29,7 @@ with col1:
 with col2:
     st.markdown("""
         <div class='upload-box'>
-        <h3>📤 Upload Combined Dataset</h3>
+        <h3>📤 Upload UpRegulated Dataset</h3>
         """, unsafe_allow_html=True)
     combined_dataset_file = st.file_uploader("Upload Data (.csv OR .xlsx)", type=['csv', 'xlsx'])
     st.markdown("</div>", unsafe_allow_html=True)
